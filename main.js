@@ -7,9 +7,10 @@ async function start() {
 
 start();
 
+// select element
 function createBreedList(breedList) {
   document.getElementById('breed').innerHTML = `
-  <select>
+  <select onchange="loadByBreed(this.value)">
         <option>Choose a dog breed</option>
         ${Object.keys(breedList)
           .map(function (breed) {
@@ -19,3 +20,24 @@ function createBreedList(breedList) {
       </select>
   `;
 }
+
+async function loadByBreed(breed) {
+  if (breed != 'Choose a dog breed') {
+    // alert(breed);
+    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
+    const data = await response.json();
+    // console.log(data);
+    createSlideshow(data.message);
+  }
+}
+
+function createSlideshow(images) {
+  document.getElementById('slideshow').innerHTML = `
+  <div class="slide" style="background-image: url('${images[0]}')"></div>
+  <div class="slide" style="background-image: url('${images[1]}')"></div>
+`;
+}
+
+// 51:00
+
+// I like to keep each function having just one responsibility

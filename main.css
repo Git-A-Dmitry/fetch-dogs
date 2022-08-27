@@ -9,7 +9,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: #0072b5;
 }
 
 .header {
@@ -19,7 +19,7 @@ body {
 
 .header h1 {
   font-size: 3rem;
-  color: ghostwhite;
+  color: black;
   margin: 0 0 10px 0;
 }
 
@@ -29,19 +29,19 @@ body {
   font-weight: 500;
   color: black;
   text-transform: uppercase;
-  padding: 8px 10px 8px 10px;
+  padding: 8px 10px 8px 30px;
   width: 250px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: 2px solid green;
-  background: white;
+  border: 2px solid black;
+  background: #f0ead6;
   /* background: transparent; */
   /* outline: none; */
 }
 
 .header select:hover {
-  background-color: green;
+  background-color: black;
   color: white;
 }
 
@@ -51,16 +51,19 @@ body {
 
 .slideshow {
   flex: 1;
-  padding-top: 200px;
+  padding-top: 150px;
   /* height: 80vh; */
   background-color: azure;
   position: relative;
+  overflow: hidden;
 }
 
 .slideshow p {
-  margin: 15px;
-  font-size: 1.5rem;
-  /* width: 50%; */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 50%;
   text-align: center;
 }
 
@@ -74,6 +77,14 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+  opacity: 0;
+  transform: scale(1);
+  transition: all 0.9s ease-out;
+}
+
+.slide:nth-last-child(2) {
+  opacity: 1;
+  transform: scale(1.08);
 }
 
 footer {
@@ -81,5 +92,5 @@ footer {
   padding: 20px;
   color: white;
   font-size: 1.2rem;
-  background-color: black;
+  background-color: #0072b5;
 }

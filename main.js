@@ -4,7 +4,6 @@ let deleteFirstPhotoDelay;
 async function start() {
   const response = await fetch('https://dog.ceo/api/breeds/list/all');
   const data = await response.json();
-  // console.log(data);
   createBreedList(data.message);
 }
 
@@ -26,10 +25,8 @@ function createBreedList(breedList) {
 
 async function loadByBreed(breed) {
   if (breed != 'Choose a dog breed') {
-    // alert(breed);
     const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
     const data = await response.json();
-    // console.log(data);
     createSlideshow(data.message);
   }
 }
@@ -66,7 +63,3 @@ function createSlideshow(images) {
     }
   }
 }
-
-// 1:04
-
-// I like to keep each function having just one responsibility
